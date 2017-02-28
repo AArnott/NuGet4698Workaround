@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <!-- This is part of a workaround for https://github.com/NuGet/Home/issues/4698
-       The other part is the PackSatelliteAssemblies target in buildCrossTargeting. -->
+  <Target Name="PackSatelliteAssemblies"
+          BeforeTargets="_WalkEachTargetPerFramework"
+          DependsOnTargets="SatelliteDllsProjectOutputGroupWithTargetFramework">
+    <ItemGroup>
+      <Content Include="@(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework)"
+               Condition=" '%(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework.Culture)' != '' ">
+        <Pack>true</Pack>
+        <PackagePath>lib\%(TargetFramework)\%(TargetPath)</PackagePath>
+      </Content>
+    </ItemGroup>
+  </Target>
+
   <Target Name="SatelliteDllsProjectOutputGroupWithTargetFramework"
           DependsOnTargets="SatelliteDllsProjectOutputGroup"
           Returns="@(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework)">
