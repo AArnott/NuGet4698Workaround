@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NuGet4698Workaround</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>andarno</authors>
     <owners>andarno</owners>
     <licenseUrl>https://github.com/AArnott/NuGet4698Workaround/blob/master/LICENSE</licenseUrl>
@@ -11,7 +11,7 @@
     <description>Applies a workaround for NuGet bug https://github.com/NuGet/Home/issues/4698 that prevents satellite assemblies from being included in the package of .NET SDK projects.</description>
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>Copyright 2017</copyright>
-    <tags></tags>
+    <developmentDependency>true</developmentDependency>
   </metadata>
   <files>
     <file src="build\**" target="build\" />
