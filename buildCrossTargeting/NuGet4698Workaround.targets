@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Fix NuGet Pack to include satellite assemblies.
+       See https://github.com/NuGet/Home/issues/4698 -->
+  <Target Name="PackSatelliteAssemblies" BeforeTargets="_WalkEachTargetPerFramework">
+    <MSBuild Condition="'$(IncludeBuildOutput)' == 'true'"
+             Projects="$(MSBuildProjectFullPath)"
+             Targets="SatelliteDllsProjectOutputGroupWithTargetFramework"
+             BuildInParallel="$(BuildInParallel)"
+             Properties="TargetFramework=%(_TargetFrameworks.Identity)">
+      <Output TaskParameter="TargetOutputs" ItemName="_SatelliteAssembliesToPack" />
+    </MSBuild>
+    <ItemGroup>
+      <Content Include="@(_SatelliteAssembliesToPack)" Condition=" '%(_SatelliteAssembliesToPack.Culture)' != '' ">
+        <Pack>true</Pack>
+        <PackagePath>lib\%(TargetFramework)\%(TargetPath)</PackagePath>
+      </Content>
+    </ItemGroup>
+  </Target>
+</Project>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NuGet4698Workaround</id>
+    <version>1.0.0</version>
+    <authors>andarno</authors>
+    <owners>andarno</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Applies a workaround for NuGet bug https://github.com/NuGet/Home/issues/4698 that prevents satellite assemblies from being included in the package of .NET SDK projects.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="build\**" target="build\" />
+    <file src="buildCrossTargeting\**" target="buildCrossTargeting\" />
+  </files>
+</package>

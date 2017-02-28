@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- This is part of a workaround for https://github.com/NuGet/Home/issues/4698
+       The other part is the PackSatelliteAssemblies target in buildCrossTargeting. -->
+  <Target Name="SatelliteDllsProjectOutputGroupWithTargetFramework"
+          DependsOnTargets="SatelliteDllsProjectOutputGroup"
+          Returns="@(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework)">
+    <ItemGroup>
+      <_SatelliteDllsProjectOutputGroupOutputWithTargetFramework Include="@(SatelliteDllsProjectOutputGroupOutput)">
+        <TargetFramework>$(TargetFramework)</TargetFramework>
+      </_SatelliteDllsProjectOutputGroupOutputWithTargetFramework>
+    </ItemGroup>
+  </Target>
+
+</Project>
