@@ -8,7 +8,7 @@
       <Content Include="@(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework)"
                Condition=" '%(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework.Culture)' != '' ">
         <Pack>true</Pack>
-        <PackagePath>lib\%(TargetFramework)\%(TargetPath)</PackagePath>
+        <PackagePath>lib\%(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework.TargetFramework)\%(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework.TargetPath)</PackagePath>
       </Content>
     </ItemGroup>
   </Target>
