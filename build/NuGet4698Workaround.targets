@@ -3,7 +3,8 @@
 
   <Target Name="PackSatelliteAssemblies"
           BeforeTargets="_WalkEachTargetPerFramework"
-          DependsOnTargets="SatelliteDllsProjectOutputGroupWithTargetFramework">
+          DependsOnTargets="SatelliteDllsProjectOutputGroupWithTargetFramework"
+          Condition=" '$(IncludeBuildOutput)' != 'false' ">
     <ItemGroup>
       <Content Include="@(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework)"
                Condition=" '%(_SatelliteDllsProjectOutputGroupOutputWithTargetFramework.Culture)' != '' ">
