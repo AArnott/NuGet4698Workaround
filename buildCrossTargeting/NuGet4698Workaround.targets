@@ -13,7 +13,7 @@
     <ItemGroup>
       <Content Include="@(_SatelliteAssembliesToPack)" Condition=" '%(_SatelliteAssembliesToPack.Culture)' != '' ">
         <Pack>true</Pack>
-        <PackagePath>lib\%(TargetFramework)\%(TargetPath)</PackagePath>
+        <PackagePath>lib\%(_SatelliteAssembliesToPack.TargetFramework)\%(_SatelliteAssembliesToPack.TargetPath)</PackagePath>
       </Content>
     </ItemGroup>
   </Target>

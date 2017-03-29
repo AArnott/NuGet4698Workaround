@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NuGet4698Workaround</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <authors>andarno</authors>
     <owners>andarno</owners>
     <licenseUrl>https://github.com/AArnott/NuGet4698Workaround/blob/master/LICENSE</licenseUrl>
